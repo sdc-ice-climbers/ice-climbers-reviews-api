@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.3.0",
+    "pg": "^8.7.3"
+  },
+  "name": "ice-climbers-reviews-api",
+  "description": "Ratings and Reviews Back End",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdc-ice-climbers/ice-climbers-reviews-api.git"
+  },
+  "author": "Austin Chapin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdc-ice-climbers/ice-climbers-reviews-api/issues"
+  },
+  "homepage": "https://github.com/sdc-ice-climbers/ice-climbers-reviews-api#readme"
+}

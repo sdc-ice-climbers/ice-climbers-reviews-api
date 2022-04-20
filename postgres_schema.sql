@@ -11,7 +11,7 @@ CREATE DATABASE ratings_reviews;
 DROP TABLE IF EXISTS products;
 
 CREATE TABLE products (
-  uniq_prod_id SERIAL NOT NULL PRIMARY KEY,
+  uniq_prod_id SERIAL PRIMARY KEY,
   product_id INT NOT NULL,
 );
 
@@ -24,11 +24,11 @@ CREATE TABLE products (
 DROP TABLE IF EXISTS reviews;
 
 CREATE TABLE reviews (
-  id SERIAL NOT NULL,
+  id SERIAL,
   uniq_prod_id INT NOT NULL REFERENCES products (uniq_prod_id),
-  review_id INT NOT NULL,
+  review_id INT NOT NULL PRIMARY KEY,
   date DATE NOT NULL,
-  summary VARCHAR(100),
+  summary VARCHAR(100) NOT NULL,
   rating INT NOT NULL,
   body VARCHAR(1000) NOT NULL,
   recommend BOOLEAN,
@@ -47,13 +47,13 @@ DROP TABLE IF EXISTS meta_ratings_and_recommended;
 
 CREATE TABLE meta_ratings_and_recommended (
   uniq_prod_id INT NOT NULL REFERENCES products(uniq_prod_id),
-  rating_1 INT NULL DEFAULT NULL,
-  rating_2 INT NULL DEFAULT NULL,
-  rating_3 INT NULL DEFAULT NULL,
-  rating_4 INT NULL DEFAULT NULL,
-  rating_5 INT NULL DEFAULT NULL,
-  recommend_true INT NULL DEFAULT NULL,
-  recommend_false INT NULL DEFAULT NULL
+  rating_1 INT,
+  rating_2 INT,
+  rating_3 INT,
+  rating_4 INT,
+  rating_5 INT,
+  recommend_true INT,
+  recommend_false INT
 );
 
 -- ---
@@ -64,7 +64,7 @@ CREATE TABLE meta_ratings_and_recommended (
 DROP TABLE IF EXISTS photos;
 
 CREATE TABLE photos (
-  photo_id SERIAL NOT NULL,
+  photo_id SERIAL,
   review_id INT NOT NULL REFERENCES reviews(review_id),
   url VARCHAR
 );
@@ -77,9 +77,9 @@ CREATE TABLE photos (
 DROP TABLE IF EXISTS meta_characteristics;
 
 CREATE TABLE meta_characteristics (
-  uniq_prod_id INT NULL AUTO_INCREMENT DEFAULT NULL,
-  characteristic_id INT NULL DEFAULT NULL,
-  characteristic_value VARCHAR(50) NULL DEFAULT NULL,
+  uniq_prod_id INT NOT NULL REFERENCES products(uniq_prod_id),
+  characteristic_id INT,
+  characteristic_value VARCHAR(50),
   PRIMARY KEY (uniq_prod_id)
 );
 
