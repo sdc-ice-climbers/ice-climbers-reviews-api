@@ -2,12 +2,23 @@ CREATE DATABASE ratings_reviews;
 
 \c ratings_reviews;
 
+
+-- ---
+-- Table products
+--
+-- ---
+
 DROP TABLE IF EXISTS products;
 
 CREATE TABLE products (
   uniq_prod_id SERIAL NOT NULL PRIMARY KEY,
   product_id INT NOT NULL,
 );
+
+-- ---
+-- Table reviews
+--
+-- ---
 
 
 DROP TABLE IF EXISTS reviews;
