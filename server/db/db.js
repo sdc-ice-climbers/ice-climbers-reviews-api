@@ -74,6 +74,15 @@ module.exports = {
   // -----------------------------------------------
 
   reportReview: (req, res) => {
-    console.log(req.params.review_id)
+    const review_id = req.params.review_id
+    const reportQuery = `UPDATE reviews SET reported = true WHERE id = ${review_id};`
+
+    pool.query(reportQuery, (err, results) => {
+      if (err) {
+        console.log(err)
+      }
+        console.log(results)
+        // res.json(results.rows[0])
+    })
   }
 }
