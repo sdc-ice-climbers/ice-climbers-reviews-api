@@ -68,7 +68,16 @@ module.exports = {
   // -----------------------------------------------
 
   helpfulReview: (req, res) => {
-    console.log(req.params.review_id)
+    const review_id = req.params.review_id;
+    const helpfulQuery = `UPDATE reviews SET helpfulness = helpfulness + 1 WHERE id = ${review_id};`
+
+    pool.query(helpfulQuery, (err, results) => {
+      if (err) {
+        console.log(err)
+      }
+        console.log(results)
+        // res.json(results.rows[0])
+    })
   },
 
   // -----------------------------------------------
