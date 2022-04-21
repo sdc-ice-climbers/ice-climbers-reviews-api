@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/sdc-ice-climbers/ice-climbers-reviews-api/issues"
   },
-  "homepage": "https://github.com/sdc-ice-climbers/ice-climbers-reviews-api#readme"
+  "homepage": "https://github.com/sdc-ice-climbers/ice-climbers-reviews-api#readme",
+  "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
 }
