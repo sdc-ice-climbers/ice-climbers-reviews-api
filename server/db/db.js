@@ -56,7 +56,24 @@ module.exports = {
       res.json(results.rows[0])
     })
     console.log(product_id)
-  }
+  },
 
   // -----------------------------------------------
+
+  postReview: (req, res) => {
+    // req.body
+    console.log('test post')
+  },
+
+  // -----------------------------------------------
+
+  helpfulReview: (req, res) => {
+    console.log(req.params.review_id)
+  },
+
+  // -----------------------------------------------
+
+  reportReview: (req, res) => {
+    console.log(req.params.review_id)
+  }
 }
