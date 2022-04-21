@@ -21,6 +21,8 @@ CREATE TABLE reviews (
 --
 --
 -- ---
+
+
 DROP TABLE IF EXISTS characteristics;
 
 CREATE TABLE characteristics (
