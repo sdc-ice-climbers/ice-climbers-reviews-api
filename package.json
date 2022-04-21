@@ -8,7 +8,6 @@
   "description": "Ratings and Reviews Back End",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "start": "nodemon server/index.js"
   },
