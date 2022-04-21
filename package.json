@@ -1,7 +1,7 @@
 {
   "name": "ice-climbers-reviews-api",
   "version": "1.0.0",
-  "description": "microservice ratings/reviews API for a retail front-end",
+  "description": "Microservice ratings/reviews API for an e-commerce front-end",
   "main": "server/index.js",
   "scripts": {
     "server-dev": "npx nodemon --watch server server/index.js",

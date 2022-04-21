@@ -11,6 +11,8 @@ app.use(
   })
 )
 
+// app.use(express.json())
+
 app.get('/', db.testQuery)
 
 // app.get('/', (req, res) => {
