@@ -16,11 +16,7 @@ CREATE TABLE reviews (
   helpfulness INT
 );
 
--- ---
---
---
--- ---
-
+---------------------------------------------------------
 
 DROP TABLE IF EXISTS characteristics;
 
@@ -30,9 +26,7 @@ CREATE TABLE characteristics (
   name VARCHAR NOT NULL
 );
 
-
-
-
+---------------------------------------------------------
 
 DROP TABLE IF EXISTS characteristic_reviews;
 
@@ -43,13 +37,7 @@ CREATE TABLE characteristic_reviews (
   value INT
 );
 
-
-
-
--- ---
--- Table Photos
---
--- ---
+---------------------------------------------------------
 
 DROP TABLE IF EXISTS photos;
 
@@ -61,7 +49,11 @@ CREATE TABLE photos (
 
 
 
--- ----
+-- ---- ETL
+
+
+
+
 
 -- COPY reviews (id, product_id, rating, date, summary, body, recommend, reported, reviewer_name, reviewer_email, response, helpfulness) FROM '/Users/austinchapin/Desktop/HackReactor/reviews.csv' DELIMITER ',' CSV HEADER;
 
@@ -71,3 +63,6 @@ CREATE TABLE photos (
 -- COPY reviews_photos (id, review_id, url) FROM '/Users/austinchapin/Desktop/HackReactor/reviews_photos.csv' DELIMITER ',' CSV HEADER;
 
 -- COPY characteristic_reviews (id, characteristic_id, review_id, value) FROM '/Users/austinchapin/Desktop/HackReactor/characteristic_reviews.csv' DELIMITER ',' CSV HEADER;
+
+
+-- 'SELECT TO_TIMESTAMP(date/1000) date FROM reviews where id = 5;'
