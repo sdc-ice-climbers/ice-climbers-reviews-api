@@ -7,27 +7,34 @@ const getReviews = `
         R.recommend,
         R.response,
         R.body,
-        TO_TIMESTAMP(R.date/1000) date,
+        R.date,
         R.reviewer_name,
         R.helpfulness,
           (
-            SELECT array_to_json(coalesce(array_agg(photo), array[]::record[]))
+          SELECT
+            array_to_json(coalesce(array_agg(photo), array[]::record[]))
             FROM
-            (
-              SELECT RP.id, RP.url
+              (
+              SELECT
+                RP.id, RP.url
               FROM
-              reviews R2 INNER JOIN reviews_photos RP
-              ON R2.id = RP.review_id
-              WHERE RP.review_id = R.id) photo
-            ) photos
-        FROM reviews R
-        WHERE
+                reviews R2 INNER JOIN reviews_photos RP
+              ON
+                R2.id = RP.review_id
+              WHERE
+                RP.review_id = R.id
+              ) photo
+          ) photos
+      FROM
+        reviews R
+      WHERE
         (R.product_id = $1 AND R.reported = false)
-      $2
+      ORDER BY $2
       LIMIT $3
-      OFFSET $4`
+      OFFSET $4;`
 
-// ------------------------------------------------------------
+
+  // ------------------------------------------------------------
 
 // GET REVIEW META DATA
 const getMetaData = `
@@ -88,6 +95,7 @@ SELECT
   GROUP BY
     R1.product_id;`
 
+
 // ------------------------------------------------------------
 // MARK REVIEW  HELPFUL
 
@@ -101,6 +109,31 @@ SELECT
   const reportQuery = `UPDATE reviews SET reported = true WHERE id = $1;`
 
 
+
+// POST REVIEW
+
+  const postReview = `
+            INSERT INTO reviews
+              (
+              product_id,
+              rating,
+              date,
+              summary,
+              body,
+              recommend,
+              reported,
+              reviewer_name,
+              reviewer_email,
+              response,
+              helpfulness
+              )
+            VALUES
+              ($1, $2, current_timestamp, $3, $4, $5, $6, 0)
+              RETURNING id;
+  `
+
+
+
   // PHOTOS
 
   // 'SELECT id, url FROM reviews_photos where review_id = 115816';
@@ -111,5 +144,6 @@ SELECT
       getReviews,
       getMetaData,
       helpfulQuery,
-      reportQuery
+      reportQuery,
+      postReview
     };

@@ -5,7 +5,7 @@ const port = 1128
 
 app.use(express.json())
 
-app.get('/', db.testQuery)
+// app.get('/', db.testQuery)
 
 app.get('/reviews', db.getReviews)
 

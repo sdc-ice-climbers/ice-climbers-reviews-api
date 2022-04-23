@@ -6,7 +6,7 @@ const pool = new Pool({
   port: 5432
 })
 
-const { metaData } = require('./queries.js')
+const { metaData, getReviews, helpfulQuery, reportQuery, postReview } = require('./queries.js')
 
 
 
@@ -30,24 +30,29 @@ module.exports = {
 
 
   getReviews: (req, res) => {
-    const { product_id, page, count, sort } = req.query;
+    let { product_id, sort, page, count } = req.query;
+    let offset = count * page - count;
 
     if (sort === 'newest') {
-      sort = 'order by R.date desc'
-    } else if (sort = 'helpful') {
-      sort = 'order by R.helpfulness desc'
-    } else if (sort = 'relevant') {
-      sort = ''
+      sort = 'R.date DESC'
+    } else if (sort === 'helpfulness') {
+      sort = 'R.helpfulness DESC'
+    } else if (sort === 'relevant') {
+      sort = 'R.helpfulness DESC'
     }
 
-    // prod id = $1, sort = $2, page = $3, count = $4
-
-
-    pool.query(getReviews, [product_id, sort, page, count])
-      .then(results => res.json(results.rows))
+    pool.query(getReviews, [product_id, sort, count, offset])
+      .then(results => {
+        res.send({
+          "product": product_id,
+          "page": Number(page),
+          "count": Number(count),
+          "results": results.rows
+        })
+      })
       .catch(error => {
         console.log(error);
-        res.send(500);
+        res.sendStatus(500);
       })
   },
 
@@ -59,14 +64,30 @@ module.exports = {
       .then(results => res.json(results.rows[0]))
       .catch(error => {
         console.log(error);
-        res.send(500);
+        res.sendStatus(500);
       })
   },
 
 
   postReview: (req, res) => {
-    // req.body
-    console.log('test post')
+
+    const { product_id, rating, summary, body, name, email } = req.body
+    // 1 = prod_id
+    // 2 = rating
+    // 3 = summary
+    // 4 = body
+    // 5 = reviewer_name
+    // 6 = reviewer_email
+
+
+    // pool.query(postReview, [product_id])
+    //   .then(results => res.json(results))
+    //   .catch(error => {
+    //     console.log(error);
+    //     res.sendStatus(500);
+    //   });
+
+      console.log(product_id, rating, summary, body, name, email)
   },
 
 
@@ -77,7 +98,7 @@ module.exports = {
       .then(results => res.send(200))
       .catch(error => {
         console.log(error);
-        res.send(500);
+        res.sendStatus(500);
       })
   },
 
@@ -89,7 +110,7 @@ module.exports = {
       .then(result => res.send(200))
       .catch(error => {
         console.log(error);
-        res.send(500);
+        res.sendStatus(500);
       })
   }
 }
