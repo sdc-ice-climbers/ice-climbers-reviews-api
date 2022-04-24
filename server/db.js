@@ -41,6 +41,7 @@ module.exports = {
       sort = 'R.helpfulness DESC'
     }
 
+
     pool.query(getReviews, [product_id, sort, count, offset])
       .then(results => {
         res.send({
@@ -90,7 +91,7 @@ module.exports = {
   helpfulReview: (req, res) => {
     const { review_id } = req.params;
 
-    pool.query(helpfulQuery, [review_id])
+    pool.query(helpfulReview, [review_id])
       .then(results => res.send(200))
       .catch(error => {
         console.log(error);
@@ -102,7 +103,7 @@ module.exports = {
   reportReview: (req, res) => {
     const { review_id } = req.params;
 
-    pool.query(reportQuery, [review_id])
+    pool.query(reportReview, [review_id])
       .then(result => res.send(200))
       .catch(error => {
         console.log(error);

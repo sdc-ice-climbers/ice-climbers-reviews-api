@@ -1,13 +1,12 @@
 const express = require('express')
-const db = require('./db/db.js')
+const controllers = require('./controllers.js');
+const db = require('./db.js')
 const app = express()
 const port = 1128
 
 app.use(express.json())
 
-// app.get('/', db.testQuery)
-
-app.get('/reviews', db.getReviews)
+app.get('/reviews', controllers.getReviews)
 
 app.get('/reviews/meta', db.getReviewsMeta)
 

@@ -99,14 +99,14 @@ SELECT
 // ------------------------------------------------------------
 // MARK REVIEW  HELPFUL
 
-  const helpfulQuery = `UPDATE reviews SET helpfulness = helpfulness + 1 WHERE id = $1;`
+  const helpfulReview = `UPDATE reviews SET helpfulness = helpfulness + 1 WHERE id = $1;`
 
 
 
 // ------------------------------------------------------------
 // MARK REVIEW REPORTED
 
-  const reportQuery = `UPDATE reviews SET reported = true WHERE id = $1;`
+  const reportReview = `UPDATE reviews SET reported = true WHERE id = $1;`
 
 
 
@@ -140,7 +140,7 @@ SELECT
     module.exports = {
       getReviews,
       getMetaData,
-      helpfulQuery,
-      reportQuery,
+      helpfulReview,
+      reportReview,
       postReview
     };
