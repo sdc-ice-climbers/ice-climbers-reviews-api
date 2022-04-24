@@ -15,9 +15,9 @@ module.exports = {
           "page": Number(page),
           "count": Number(count),
           "results": results.rows
-        })
+        });
       })
-      .catch(error => res.sendStatus(404))
+      .catch(error => res.sendStatus(404));
   },
 
 
@@ -29,9 +29,9 @@ module.exports = {
     models.getMetaData({ product_id })
     .then(results => res.json(results.rows[0]))
     .catch(error => {
-      console.log(error)
-      res.sendStatus(404)
-    })
+      console.log(error);
+      res.sendStatus(404);
+    });
   },
 
 
@@ -41,12 +41,14 @@ module.exports = {
   postReview: (req, res) => {
     models.postReview(req.body)
       .then(results => {
-        res.send(results.rows[0])
+        // res.send(results.rows[0]);
+        console.log('Back to controller')
+        res.sendStatus(200)
       })
       .catch(error => {
         console.log(error);
         res.sendStatus(404);
-      })
+      });
   },
 
 
@@ -57,24 +59,26 @@ module.exports = {
     const { review_id } = req.params;
     models.helpfulReview({ review_id })
       .then(results => {
-        res.sendStatus(200)
+        res.sendStatus(200);
       })
       .catch(error => {
-        console.log(error)
-        res.sendStatus(404)
-      })
+        console.log(error);
+        res.sendStatus(404);
+      });
   },
+
+  // --------------------------------------
 
 
   reportReview: (req, res) => {
     const { review_id } = req.params;
     models.reportReview({ review_id })
       .then(results => {
-        res.sendStatus(200)
+        res.sendStatus(200);
       })
       .catch(error => {
-        console.log(error)
-        res.sendStatus(404)
+        console.log(error);
+        res.sendStatus(404);
       })
   }
 }

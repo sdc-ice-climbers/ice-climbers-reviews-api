@@ -6,7 +6,7 @@ const pool = new Pool({
   port: 5432
 })
 
-const { getReviews, getMetaData, helpfulReview, reportReview, postReview } = require('./queries.js');
+const { getReviews, getMetaData, helpfulReview, reportReview, postReview, postPhotos, postCharacteristics } = require('./queries.js');
 
 
 module.exports = {
@@ -48,11 +48,27 @@ module.exports = {
 
 
 
-  postReview: ( { product_id, rating, summary, body, name, email } ) => {
+  postReview: ( { product_id, rating, summary, body, name, email, photos, characteristics } ) => {
     return pool.query(postReview, [product_id, rating, summary, body, name, email])
       .then(results => {
-        return results
+
+        let review_id = results.rows[0].id;
+        console.log(characteristics);
+
+        // pool.query(postPhotos, [Array(photos.length).fill(review_id), photos])
+        //   .then(results => console.log('Review photo(s) posted'))
+        //   .catch(error => console.log('Failed photo post'))
+
+        // pool.query(postCharacteristics, [Object.keys(characteristics), Array(Object.keys(characteristics).length).fill(review_id), Object.values(characteristics)] )
+        //   .then(results => console.log('Characteristics posted'))
+        //   .catch(error => console.log("Characteristics post failed"))
       })
+      // .then(results => {
+      //   console.log('HELLO')
+      //   pool.query(postCharacteristics, [Object.keys(characteristics), Array(Object.keys(characteristics).length).fill(review_id), Object.values(characteristics)] )
+      //     .then(results => console.log('Characteristics posted'))
+      //     .catch(error => console.log("character post failed"))
+      // })
       .catch(error => {
          return error
       });

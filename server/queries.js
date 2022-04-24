@@ -133,14 +133,42 @@ SELECT
 
   // PHOTOS
 
-  // 'SELECT id, url FROM reviews_photos where review_id = 115816';
 
-  // const insertReview = 'INSERT INTO id, product_id, rating, TO_TIMESTAMP(date/1000) date, summary, body, recommend, reported, reviewer_name, reviewer_email, response, helpfulness FROM reviews where product_id = 5;'
+  const postPhotos = `
+            INSERT INTO reviews_photos
+              (review_id, url)
+            SELECT
+              review_id,
+              url
+            FROM
+            UNNEST
+              ($1::int[], $2::text[]) AS alias
+              (review_id, url)`
+
+
+
+  const postCharacteristics = `
+          INSERT INTO characteristic_reviews
+            (characteristic_id, review_id, value)
+          SELECT
+            characteristic_id,
+            review_id,
+            value
+          FROM
+          UNNEST
+            ($1::int[], $2::int[], $3::int[])
+            AS alias
+            (characteristic_id, review_id, value)`
+
+
 
     module.exports = {
       getReviews,
       getMetaData,
       helpfulReview,
       reportReview,
-      postReview
+      postReview,
+      postPhotos,
+      postCharacteristics
     };
+

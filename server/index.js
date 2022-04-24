@@ -1,6 +1,5 @@
 const express = require('express')
 const controllers = require('./controllers.js');
-const db = require('./db.js')
 const app = express()
 const port = 1128
 
