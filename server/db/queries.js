@@ -120,11 +120,8 @@ SELECT
               date,
               summary,
               body,
-              recommend,
-              reported,
               reviewer_name,
               reviewer_email,
-              response,
               helpfulness
               )
             VALUES

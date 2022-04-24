@@ -72,22 +72,18 @@ module.exports = {
   postReview: (req, res) => {
 
     const { product_id, rating, summary, body, name, email } = req.body
-    // 1 = prod_id
-    // 2 = rating
-    // 3 = summary
-    // 4 = body
-    // 5 = reviewer_name
-    // 6 = reviewer_email
 
+    pool.query(postReview, [product_id, rating, summary, body, name, email])
+      .then(results => {
 
-    // pool.query(postReview, [product_id])
-    //   .then(results => res.json(results))
-    //   .catch(error => {
-    //     console.log(error);
-    //     res.sendStatus(500);
-    //   });
+        results.rows[0]
 
-      console.log(product_id, rating, summary, body, name, email)
+        // res.json(results)
+      })
+      .catch(error => {
+        console.log(error);
+        res.sendStatus(500);
+      });
   },
 
 
