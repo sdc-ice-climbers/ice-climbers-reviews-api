@@ -58,6 +58,7 @@ module.exports = {
   },
 
 
+
   getReviewsMeta: (req, res) => {
     const { product_id }= req.query;
 
@@ -70,8 +71,8 @@ module.exports = {
   },
 
 
-  postReview: (req, res) => {
 
+  postReview: (req, res) => {
     const { product_id, rating, summary, body, name, email } = req.body
 
     pool.query(postReview, [product_id, rating, summary, body, name, email])

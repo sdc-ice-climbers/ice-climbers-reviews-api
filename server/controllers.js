@@ -8,70 +8,73 @@ module.exports = {
   getReviews: (req, res) => {
     let { product_id, sort, page, count } = req.query;
 
-    models.getReviews( { product_id, sort, page, count })
-    .then(results => {
-      res.send({
-        "product": product_id,
-        "page": Number(page),
-        "count": Number(count),
-        "results": results.rows
+    models.getReviews( {product_id, sort, page, count} )
+      .then(results => {
+        res.send({
+          "product": product_id,
+          "page": Number(page),
+          "count": Number(count),
+          "results": results.rows
+        })
       })
-    })
-      .catch(error => {
-        res.send(error)
-      })
+      .catch(error => res.sendStatus(404))
   },
 
+
 // --------------------------------------
+
 
   getReviewsMeta: (req, res) => {
     const { product_id }= req.query;
-
-    models.getMetaData( )
-    .then(results => {
-      res.send(results)
-    })
+    models.getMetaData({ product_id })
+    .then(results => res.json(results.rows[0]))
     .catch(error => {
-      res.send(error)
+      console.log(error)
+      res.sendStatus(404)
     })
   },
+
 
 // --------------------------------------
 
-  postReview: (req, res) => {
 
-    models.postReview(  )
-    .then(results => {
-      res.send(results)
-    })
-    .catch(error => {
-      res.send(error)
-    })
+  postReview: (req, res) => {
+    models.postReview(req.body)
+      .then(results => {
+        res.send(results.rows[0])
+      })
+      .catch(error => {
+        console.log(error);
+        res.sendStatus(404);
+      })
   },
+
 
   // --------------------------------------
 
-  helpfulReview: (req, res) => {
 
-    models.helpfulReview()
+  helpfulReview: (req, res) => {
+    const { review_id } = req.params;
+    models.helpfulReview({ review_id })
       .then(results => {
-        res.send(results)
+        res.sendStatus(200)
       })
       .catch(error => {
-        res.send(error)
+        console.log(error)
+        res.sendStatus(404)
       })
   },
 
 
   reportReview: (req, res) => {
-
-
-    models.reportReview()
+    const { review_id } = req.params;
+    models.reportReview({ review_id })
       .then(results => {
-        res.send(results)
+        res.sendStatus(200)
       })
       .catch(error => {
-        res.send(error)
+        console.log(error)
+        res.sendStatus(404)
       })
   }
 }
