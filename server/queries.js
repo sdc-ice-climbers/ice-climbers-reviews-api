@@ -1,4 +1,7 @@
+// ------------------------------------------------------------
 // GET REVIEWS
+// ------------------------------------------------------------
+
 const getReviews = `
       SELECT
         R.id as review_id,
@@ -34,9 +37,10 @@ const getReviews = `
       OFFSET $4;`
 
 
-  // ------------------------------------------------------------
 
+// ------------------------------------------------------------
 // GET REVIEW META DATA
+// ------------------------------------------------------------
 const getMetaData = `
 SELECT
   R1.product_id,
@@ -96,22 +100,24 @@ SELECT
     R1.product_id;`
 
 
+
 // ------------------------------------------------------------
 // MARK REVIEW  HELPFUL
-
+// ------------------------------------------------------------
   const helpfulReview = `UPDATE reviews SET helpfulness = helpfulness + 1 WHERE id = $1;`
 
 
 
 // ------------------------------------------------------------
 // MARK REVIEW REPORTED
-
+// ------------------------------------------------------------
   const reportReview = `UPDATE reviews SET reported = true WHERE id = $1;`
 
 
 
+// ------------------------------------------------------------
 // POST REVIEW
-
+// ------------------------------------------------------------
   const postReview = `
             INSERT INTO reviews
               (
@@ -130,10 +136,9 @@ SELECT
   `
 
 
-
-  // PHOTOS
-
-
+// ------------------------------------------------------------
+// PHOTOS
+// ------------------------------------------------------------
   const postPhotos = `
             INSERT INTO reviews_photos
               (review_id, url)
@@ -147,6 +152,9 @@ SELECT
 
 
 
+// ------------------------------------------------------------
+// POST CHARACTERISTICS
+// ------------------------------------------------------------
   const postCharacteristics = `
           INSERT INTO characteristic_reviews
             (characteristic_id, review_id, value)
@@ -161,6 +169,10 @@ SELECT
             (characteristic_id, review_id, value)`
 
 
+
+// ------------------------------------------------------------
+// EXPORTS
+// ------------------------------------------------------------
 
     module.exports = {
       getReviews,

@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 main().catch(err => console.error(err));
 
-// async function main() {
-//   await mongoose.connect('mongodb://localhost:27017/test');
-// }
+async function main() {
+  await mongoose.connect('mongodb://localhost:27017/test');
+}
 
 
 const photo = mongoose.schema({
