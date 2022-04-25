@@ -1,20 +1,23 @@
 const express = require('express')
 const controllers = require('./controllers.js');
-const app = express()
-const port = 1128
+const cors = require('cors');
 
-app.use(express.json())
+const app = express();
+const port = 1128;
 
-app.get('/reviews', controllers.getReviews)
+app.use(express.json());
+app.use(cors());
 
-app.get('/reviews/meta', controllers.getReviewsMeta)
+app.get('/reviews', controllers.getReviews);
 
-app.post('/reviews', controllers.postReview)
+app.get('/reviews/meta', controllers.getReviewsMeta);
 
-app.put('/reviews/:review_id/helpful', controllers.helpfulReview)
+app.post('/reviews', controllers.postReview);
 
-app.put('/reviews/:review_id/report', controllers.reportReview)
+app.put('/reviews/:review_id/helpful', controllers.helpfulReview);
+
+app.put('/reviews/:review_id/report', controllers.reportReview);
 
 app.listen(port, () => {
-  console.log(`API Service - listening on port: ${port}`)
-})
+  console.log(`API Service - listening on port: ${port}`);
+});

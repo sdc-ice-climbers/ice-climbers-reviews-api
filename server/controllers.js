@@ -11,6 +11,8 @@ module.exports = {
   getReviews: (req, res) => {
     let { product_id, sort, page, count } = req.query;
 
+
+
     models.getReviews( {product_id, sort, page, count} )
       .then(results => {
         res.send({
