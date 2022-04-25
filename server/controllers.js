@@ -1,7 +1,5 @@
 const models = require('./models.js');
 
-
-
 module.exports = {
 
 // ------------------------------------------------------------
@@ -10,8 +8,6 @@ module.exports = {
 
   getReviews: (req, res) => {
     let { product_id, sort, page, count } = req.query;
-
-
 
     models.getReviews( {product_id, sort, page, count} )
       .then(results => {
@@ -50,8 +46,6 @@ module.exports = {
   postReview: (req, res) => {
     models.postReview(req.body)
       .then(results => {
-        // res.send(results.rows[0]);
-        console.log('Back to controller')
         res.sendStatus(200)
       })
       .catch(error => {
