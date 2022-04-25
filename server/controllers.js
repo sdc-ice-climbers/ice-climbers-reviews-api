@@ -17,6 +17,7 @@ module.exports = {
           "count": Number(count),
           "results": results.rows
         });
+        console.log(res)
       })
       .catch(error => res.sendStatus(404));
   },
