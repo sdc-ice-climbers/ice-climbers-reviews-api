@@ -1,22 +1,20 @@
+require('dotenv').config();
 const express = require('express')
-const db = require('./db/db.js')
 const app = express()
-const port = 1128
+const port = process.env.PORT;
 
-app.use(express.json())
+// Middleware
+const cors = require('cors');
 
-app.get('/', db.testQuery)
+// Router
+const router = require('./router.js');
 
-app.get('/reviews', db.getReviews)
 
-app.get('/reviews/meta', db.getReviewsMeta)
+app.use(express.json());
+app.use(cors());
+app.use(router)
 
-app.post('/reviews', db.postReview)
-
-app.put('/reviews/:review_id/helpful', db.helpfulReview)
-
-app.put('/reviews/:review_id/report', db.reportReview)
 
 app.listen(port, () => {
-  console.log(`API Service - listening on port: ${port}`)
-})
+  console.log(`API Service - listening on port: ${port}`);
+});
