@@ -17,7 +17,6 @@ module.exports = {
           "count": Number(count),
           "results": results.rows
         });
-        console.log(res)
       })
       .catch(error => res.sendStatus(404));
   },
@@ -31,7 +30,9 @@ module.exports = {
   getReviewsMeta: (req, res) => {
     const { product_id }= req.query;
     models.getMetaData({ product_id })
-    .then(results => res.json(results.rows[0]))
+    .then(results => {
+      res.json(results.rows[0])
+    })
     .catch(error => {
       console.log(error);
       res.sendStatus(404);
