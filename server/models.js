@@ -44,6 +44,7 @@ module.exports = {
       .then(results => {
 
         const review_id = results.rows[0].id;
+        console.log(review_id)
 
         pool.query(postPhotos, [Array(photos.length).fill(review_id), photos])
           .then(results => console.log('Review photo(s) posted'))
