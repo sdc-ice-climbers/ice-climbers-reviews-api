@@ -184,3 +184,37 @@ SELECT
       postCharacteristics
     };
 
+
+
+  //   SELECT
+  //   R.id as review_id,
+  //   R.rating,
+  //   R.summary,
+  //   R.recommend,
+  //   R.response,
+  //   R.body,
+  //   R.date,
+  //   R.reviewer_name,
+  //   R.helpfulness,
+  //     (
+  //     SELECT
+  //       array_to_json(coalesce(array_agg(photo), array[]::record[]))
+  //       FROM
+  //         (
+  //         SELECT
+  //           RP.id, RP.url
+  //         FROM
+  //           reviews R2 INNER JOIN reviews_photos RP
+  //         ON
+  //           R2.id = RP.review_id
+  //         WHERE
+  //           RP.review_id = R.id
+  //         ) photo
+  //     ) photos
+  // FROM
+  //   reviews R
+  // WHERE
+  //   (R.product_id = 40344 AND R.reported = false)
+  // ORDER BY R.helpfulness DESC
+  // LIMIT 5
+  // OFFSET 0;
