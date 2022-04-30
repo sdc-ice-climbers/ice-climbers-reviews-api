@@ -1,3 +1,7 @@
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+
+<br>
+
 # Atelier Reviews API Service
 
 Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to handle web-scale traffic.
@@ -6,6 +10,7 @@ Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to 
 - Scaled horizontally to a micro-service architecture with 3 AWS EC2 instances.
 - Installed an NGINX load balancer to distribute traffic across servers and utilize proxy_caching.
 
+<br>
 
 ## Load Testing
 ### *Scenario*
