@@ -19,6 +19,7 @@ Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to 
 | (3) EC2 w/ NGINX Load Balancer    | 1609ms             | 107589/120000             |
 | NGINX Tuned w/ proxy_caching      | 167ms              | 119974/120000             |
 
+(assets/SingleServerAndDB.png)
 
 ### *Scenario*
 #### Randomized selections from 0-500K rows of dataset @ 1000RPS
