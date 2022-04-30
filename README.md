@@ -16,6 +16,9 @@ Build a scalable REST API for a retail e-commerce front-end, optimized to handle
 ## Stress Testing
 ### *Scenario*
 #### Randomized selections from bottom 20% of 20M+ entry dataset @ 2000RPS
+##### *93% Decrease in Avg. response time with 163% increase in successful responses*
+<br>
+
 
 | Optimization                      | Avg. Response Time | Successful Response Count |
 |-----------------------------------|--------------------|---------------------------|
@@ -24,6 +27,8 @@ Build a scalable REST API for a retail e-commerce front-end, optimized to handle
 | (2) EC2 w/ NGINX Load Balancer    | 1859ms             |  97917/120000             |
 | (3) EC2 w/ NGINX Load Balancer    | 1609ms             | 107589/120000             |
 | NGINX Tuned w/ proxy_caching      | 167ms              | 119974/120000             |
+
+
 
 ### *Loader.io*
 
@@ -89,7 +94,7 @@ npm run server-prod
 
 ## Routes
 
-| Request Type | Endpoint                    | Returns                                                                    | Status |
+| HTTP Request | API Endpoint                | Response                                                                   | Status Codes|
 |--------------|-----------------------------|----------------------------------------------------------------------------|:--------:|
 | GET          | /reviews/:product_id/       | A list of reviews per particular product                                   | 200    |
 | GET          | /reviews/:product_id/meta   | Metadata for a single product                                              | 200    |
