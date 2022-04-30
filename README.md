@@ -80,7 +80,7 @@ git clone https://github.com/sdc-ice-climbers/ice-climbers-reviews-api.git
 npm install
 ```
 3. Configure your .env file (see example.env).
-4. Follow the directions in the ELT Scripts [README](https://github.com/yoshi-sdc/atelier-QandA/blob/main/ELT%20Scripts/README.md) to set up the database.
+4. Follow schemas in the ELT Scripts [README](https://github.com/sdc-ice-climbers/ice-climbers-reviews-api/blob/main/db/schema_ETL/ETL.sql) to set up the database.
 5. Start up server
 ```
 npm run server-prod
