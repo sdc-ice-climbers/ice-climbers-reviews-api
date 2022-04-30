@@ -7,6 +7,7 @@
 ### *Goal:*
 Build a scalable REST API for a retail e-commerce front-end, optimized to handle web-scale traffic.
 
+### *Solutions:*
 - Implemented an ETL process to migrate over 7GB/20M+ entries into a redesigned postreSQL database optimizing query times to ~1ms.
 - Scaled horizontally to a micro-service architecture with 3 AWS EC2 instances.
 - Installed an NGINX load balancer to distribute traffic across servers and utilize proxy_caching.
