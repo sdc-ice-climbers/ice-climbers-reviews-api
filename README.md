@@ -4,7 +4,8 @@
 
 # Atelier Reviews API Service
 
-Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to handle web-scale traffic.
+### *Goal:*
+Build a scalable REST API for a retail e-commerce front-end, optimized to handle web-scale traffic.
 
 - Implemented an ETL process to migrate over 7GB/20M+ entries into a redesigned postreSQL database optimizing query times to ~1ms.
 - Scaled horizontally to a micro-service architecture with 3 AWS EC2 instances.
@@ -12,7 +13,7 @@ Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to 
 
 <br>
 
-## Load Testing
+## Stress Testing
 ### *Scenario*
 #### Randomized selections from bottom 20% of dataset @ 2000RPS
 
