@@ -6,7 +6,7 @@
 
 Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to handle web-scale traffic.
 
-- Implemented an ETL process to migrate over 7GB into a redesigned postreSQL database optimizing query times to ~1ms.
+- Implemented an ETL process to migrate over 7GB/20M+ entries into a redesigned postreSQL database optimizing query times to ~1ms.
 - Scaled horizontally to a micro-service architecture with 3 AWS EC2 instances.
 - Installed an NGINX load balancer to distribute traffic across servers and utilize proxy_caching.
 
@@ -24,8 +24,10 @@ Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to 
 | (3) EC2 w/ NGINX Load Balancer    | 1609ms             | 107589/120000             |
 | NGINX Tuned w/ proxy_caching      | 167ms              | 119974/120000             |
 
+### *Loader.io*
+
 <details>
-<summary>Optimization 1</summary>
+<summary>Test 1</summary>
 <br>
   
 ![](assets/1.png)
@@ -33,7 +35,7 @@ Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to 
 </details>
 
 <details>
-<summary>Optimization 2</summary>
+<summary>Test 2</summary>
 <br>
   
 ![](assets/2.png)
@@ -41,7 +43,7 @@ Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to 
 </details>
 
 <details>
-<summary>Optimization 3</summary>
+<summary>Test 3</summary>
 <br>
   
 ![](assets/3.png)
@@ -49,7 +51,7 @@ Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to 
 </details>
 
 <details>
-<summary>Optimization 4</summary>
+<summary>Test 4</summary>
 <br>
   
 ![](assets/4.png)
@@ -57,7 +59,7 @@ Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to 
 </details>
 
 <details>
-<summary>Optimization 5</summary>
+<summary>Test 5</summary>
 <br>
   
 ![](assets/5.png)
