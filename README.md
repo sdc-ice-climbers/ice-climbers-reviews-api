@@ -85,3 +85,16 @@ npm install
 ```
 npm run server-prod
 ```
+<br>
+
+## Routes
+
+| Request Type | Endpoint                    | Returns                                                                    | Status |
+|--------------|-----------------------------|----------------------------------------------------------------------------|:--------:|
+| GET          | /reviews/:product_id/       | A list of reviews per particular product                                   | 200    |
+| GET          | /reviews/:product_id/meta   | Metadata for a single product                                              | 200    |
+| POST         | /reviews/:product_id        | Post review for a given product                                            | 200    |
+| PUT          | /reviews/helpful/:review_id | Mark review helpful                                                        | 200    |
+| Put          | /reviews/report/:review_id  | Report review                                                              | 200    |
+
+---
