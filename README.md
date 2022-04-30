@@ -22,40 +22,39 @@ Goal: Build a scalable REST API for a retail e-commerce front-end, optimized to 
 <details>
 <summary>Optimization 1</summary>
 <br>
+  
 ![](assets/1.png)
+  
 </details>
 
 <details>
 <summary>Optimization 2</summary>
 <br>
+  
 ![](assets/2.png)
+  
 </details>
 
 <details>
 <summary>Optimization 3</summary>
 <br>
+  
 ![](assets/3.png)
+  
 </details>
 
 <details>
 <summary>Optimization 4</summary>
 <br>
+  
 ![](assets/4.png)
+  
 </details>
 
 <details>
 <summary>Optimization 5</summary>
 <br>
+  
 ![](assets/5.png)
+  
 </details>
-
-### *Scenario*
-#### Randomized selections from 0-500K rows of dataset @ 1000RPS
-
-| Optimization                      | Avg. Response Time | Successful Response Count |
-|-----------------------------------|--------------------|---------------------------|
-| 1 EC w/o Load Balancer            | 3923ms             | 46508/120000              |
-| (1) EC2 w/ NGINX Load Balancer    | 3688ms             | 55455/120000              |
-| (2) EC2 w/ NGINX Load Balancer    | 3541ms             | 55794/120000              |
-| (3) EC2 w/ NGINX Load Balancer    | 18ms               | 60000/120000              |
-| (3) EC2 w/ NGINX Load Balancer    | 18ms               | 59996/60000               |
