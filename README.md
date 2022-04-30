@@ -15,11 +15,11 @@ Build a scalable REST API for a retail e-commerce front-end, optimized to handle
 
 ## Stress Testing
 ### *Scenario*
-#### Randomized selections from bottom 20% of dataset @ 2000RPS
+#### Randomized selections from bottom 20% of 20M+ entry dataset @ 2000RPS
 
 | Optimization                      | Avg. Response Time | Successful Response Count |
 |-----------------------------------|--------------------|---------------------------|
-| None                              | 2740ms             |  73533/120000             |
+| Single server w/ PostgreSQL on AWS| 2740ms             |  73533/120000             |
 | (1) EC2 w/ NGINX Load Balancer    | 3326ms             |  61298/120000             |
 | (2) EC2 w/ NGINX Load Balancer    | 1859ms             |  97917/120000             |
 | (3) EC2 w/ NGINX Load Balancer    | 1609ms             | 107589/120000             |
