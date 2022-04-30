@@ -66,3 +66,22 @@ Build a scalable REST API for a retail e-commerce front-end, optimized to handle
 ![](assets/5.png)
   
 </details>
+
+
+<br>
+
+## Getting Started
+1. From a terminal, clone from [this repo](https://github.com/sdc-ice-climbers/ice-climbers-reviews-api)
+```
+git clone https://github.com/sdc-ice-climbers/ice-climbers-reviews-api.git
+```
+2. install dependencies
+```
+npm install
+```
+3. Configure your .env file (see example.env).
+4. Follow the directions in the ELT Scripts [README](https://github.com/yoshi-sdc/atelier-QandA/blob/main/ELT%20Scripts/README.md) to set up the database.
+5. Start up server
+```
+npm run server-prod
+```
