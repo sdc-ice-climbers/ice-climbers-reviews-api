@@ -21,14 +21,14 @@ Starting with a sluggish API capable of less than 100RPS, the Atelier Reviews AP
 <br>
 
 
-| Optimization                      | Avg. Response Time | Successful Response Count |
-|-----------------------------------|--------------------|---------------------------|
-| Single server w/ PostgreSQL on AWS| 2740ms             |  73533 / 120000           |
-| (1) EC2 w/ NGINX Load Balancer    | 3326ms             |  61298 / 120000           |
-| (2) EC2 w/ NGINX Load Balancer    | 1859ms             |  97917 / 120000           |
-| (3) EC2 w/ NGINX Load Balancer    | 1609ms             | 107589 / 120000           |
-| Optimized database & NGINX        | 167ms              | 119974 / 120000           |
-| Optimized caching                 | 48ms               | 119979 / 120000           |
+| Test # |Optimization                      | Avg. Response Time | Successful Response Count |
+|--------|-----------------------------------|--------------------|---------------------------|
+| 1      | Single server w/ PostgreSQL on AWS| 2740ms             |  73533 / 120000           |
+| 2      | (1) EC2 w/ NGINX Load Balancer    | 3326ms             |  61298 / 120000           |
+| 3      | (2) EC2 w/ NGINX Load Balancer    | 1859ms             |  97917 / 120000           |
+| 4      | (3) EC2 w/ NGINX Load Balancer    | 1609ms             | 107589 / 120000           |
+| 5      | Optimized database & NGINX        | 167ms              | 119974 / 120000           |
+| 6      | Optimized caching                 | 48ms               | 119979 / 120000           |
 
 
 ### *Loader.io*
