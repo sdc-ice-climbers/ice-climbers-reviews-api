@@ -4,19 +4,19 @@
 
 # Atelier Reviews API Service
 
-### *Goal:*
-Build a scalable REST API for a retail e-commerce front-end, optimized to handle web-scale traffic.
+Starting with a sluggish API capable of less than 100RPS, the Atelier Reviews API is the result of refactoring an e-commerce monolithic application to a more performant and scalable microservice architecture capable of handling webscale traffic.
 
-### *Solutions:*
+
+### *Optimizations:*
 - Implemented an ETL process to migrate over 7GB/20M+ entries into a redesigned postreSQL database optimizing query times to ~1ms.
-- Scaled horizontally to a micro-service architecture with 3 AWS EC2 instances.
+- Scaled horizontally to a microservice architecture with 3 AWS EC2 instances.
 - Installed an NGINX load balancer to distribute traffic across servers and utilize proxy_caching.
 
 <br>
 
 ## Stress Testing
 ### *Scenario*
-#### Randomized selections from bottom 20% of 20M+ entry dataset @ 2000RPS
+#### Randomized selections from bottom 20% of dataset @ 2000RPS
 ##### *93% Decrease in Avg. response time with 163% increase in successful responses*
 <br>
 
@@ -28,7 +28,7 @@ Build a scalable REST API for a retail e-commerce front-end, optimized to handle
 | (2) EC2 w/ NGINX Load Balancer    | 1859ms             |  97917 / 120000           |
 | (3) EC2 w/ NGINX Load Balancer    | 1609ms             | 107589 / 120000           |
 | Optimized database & NGINX        | 167ms              | 119974 / 120000           |
-| Optimized microcaching            | 48ms               | 119979 / 120000           |
+| Optimized caching                 | 48ms               | 119979 / 120000           |
 
 
 ### *Loader.io*
