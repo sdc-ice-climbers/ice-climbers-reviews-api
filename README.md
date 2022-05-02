@@ -23,12 +23,12 @@ Build a scalable REST API for a retail e-commerce front-end, optimized to handle
 
 | Optimization                      | Avg. Response Time | Successful Response Count |
 |-----------------------------------|--------------------|---------------------------|
-| Single server w/ PostgreSQL on AWS| 2740ms             |  73533/120000             |
-| (1) EC2 w/ NGINX Load Balancer    | 3326ms             |  61298/120000             |
-| (2) EC2 w/ NGINX Load Balancer    | 1859ms             |  97917/120000             |
-| (3) EC2 w/ NGINX Load Balancer    | 1609ms             | 107589/120000             |
-| NGINX Tuned w/ proxy_caching      | 167ms              | 119974/120000             |
-
+| Single server w/ PostgreSQL on AWS| 2740ms             |  73533 / 120000           |
+| (1) EC2 w/ NGINX Load Balancer    | 3326ms             |  61298 / 120000           |
+| (2) EC2 w/ NGINX Load Balancer    | 1859ms             |  97917 / 120000           |
+| (3) EC2 w/ NGINX Load Balancer    | 1609ms             | 107589 / 120000           |
+| Optimized database & NGINX        | 167ms              | 119974 / 120000           |
+| Optimized microcaching            | 48ms               | 119979 / 120000           |
 
 
 ### *Loader.io*
@@ -36,43 +36,50 @@ Build a scalable REST API for a retail e-commerce front-end, optimized to handle
 <details>
 <summary>Test 1</summary>
 <br>
-  
+
 ![](assets/1.png)
-  
+
 </details>
 
 <details>
 <summary>Test 2</summary>
 <br>
-  
+
 ![](assets/2.png)
-  
+
 </details>
 
 <details>
 <summary>Test 3</summary>
 <br>
-  
+
 ![](assets/3.png)
-  
+
 </details>
 
 <details>
 <summary>Test 4</summary>
 <br>
-  
+
 ![](assets/4.png)
-  
+
 </details>
 
 <details>
 <summary>Test 5</summary>
 <br>
-  
+
 ![](assets/5.png)
-  
+
 </details>
 
+<details>
+<summary>Test 6</summary>
+<br>
+
+![](assets/6.png)
+
+</details>
 
 <br>
 

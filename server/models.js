@@ -1,5 +1,4 @@
-
-const pool = require('../db/index.js')
+const pool = require('../db/index.js');
 const { getReviews, getMetaData, helpfulReview, reportReview, postReview, postPhotos, postCharacteristics } = require('./queries.js');
 
 
@@ -18,11 +17,11 @@ module.exports = {
 
     return pool.query(getReviews, [product_id, sort, count, offset])
       .then(results => {
-        return results
+        return results;
       })
       .catch(error => {
         return error
-      })
+      });
   },
 
 
@@ -98,4 +97,4 @@ module.exports = {
         return error
       })
   }
-}
+};

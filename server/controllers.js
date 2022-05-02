@@ -9,13 +9,13 @@ module.exports = {
   getReviews: (req, res) => {
     let { product_id, sort, page, count } = req.query;
 
-    models.getReviews( {product_id, sort, page, count} )
+    models.getReviews({ product_id, sort, page, count })
       .then(results => {
         res.send({
-          "product": product_id,
-          "page": Number(page),
-          "count": Number(count),
-          "results": results.rows
+          'product': product_id,
+          'page': Number(page),
+          'count': Number(count),
+          'results': results.rows
         });
       })
       .catch(error => res.sendStatus(404));
@@ -27,15 +27,15 @@ module.exports = {
 // ------------------------------------------------------------
 
   getReviewsMeta: (req, res) => {
-    const { product_id }= req.query;
+    const { product_id } = req.query;
     models.getMetaData({ product_id })
-    .then(results => {
-      res.json(results.rows[0])
-    })
-    .catch(error => {
-      console.log(error);
-      res.sendStatus(404);
-    });
+      .then(results => {
+        res.json(results.rows[0]);
+      })
+      .catch(error => {
+        console.log(error);
+        res.sendStatus(404);
+      });
   },
 
 
@@ -46,7 +46,7 @@ module.exports = {
   postReview: (req, res) => {
     models.postReview(req.body)
       .then(results => {
-        res.sendStatus(200)
+        res.sendStatus(200);
       })
       .catch(error => {
         console.log(error);
@@ -88,6 +88,6 @@ module.exports = {
       .catch(error => {
         console.log(error);
         res.sendStatus(404);
-      })
-  }
-}
+      });
+  },
+};
